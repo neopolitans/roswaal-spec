@@ -1,0 +1,23 @@
+# Publishes spec.roswaal.app, Roswaal's technical specification.
+#
+# The build lives in Roswaal's own specification workflow; this repository
+# lends it a Pages site with the domain, and keeps the drafts that have been
+# superseded under `drafts/`. Run it by hand when the specification should go
+# out:
+#
+#   gh workflow run spec.yml --repo neopolitans/roswaal-spec
+name: Specification
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  spec:
+    uses: neopolitans/Roswaal/.github/workflows/spec.yml@main
+    with:
+      source: neopolitans/Roswaal
